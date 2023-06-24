@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -29,6 +30,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.composeapp.ui.MyViewModel
 import com.example.composeapp.ui.theme.ComposeAppTheme
 import com.example.composeapp.ui.theme.Typography
 
@@ -36,14 +39,17 @@ class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val viewModel = viewModel<MyViewModel>()
             ComposeStateDemoTheme {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    var count by currentCount { mutableStateOf(0) }
-                    MyButton(count ) { count = it + 1 }
+                    var count = viewModel.count
+                    MyButton(count ) {
+                        viewModel.increaseCount()
+                    }
                 }
             }
         }
