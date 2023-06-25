@@ -13,10 +13,9 @@
         android:theme="@style/Theme.ComposeApp"
         tools:targetApi="31">
         <activity
-            android:name=".LiveDataWithComposeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_live_data_with_compose"
-            android:theme="@style/Theme.ComposeApp" >
+            android:theme="@style/Theme.AppCompat.Light"
+            android:name=".ui.StateFlowActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,16 +23,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.FlowActivity"
+            android:name=".LiveDataWithComposeActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:label="@string/title_activity_live_data_with_compose"
+            android:theme="@style/Theme.ComposeApp">
 
         </activity>
+        <activity
+            android:name=".ui.FlowActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"></activity>
         <activity
             android:name=".ComposeActivity"
             android:exported="false"
             android:label="@string/title_activity_compose"
-            android:theme="@style/Theme.ComposeApp"></activity>
+            android:theme="@style/Theme.ComposeApp" />
         <activity
             android:name=".RecyclerViewActivity"
             android:exported="false"
