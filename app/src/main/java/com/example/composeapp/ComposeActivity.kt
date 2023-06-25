@@ -46,15 +46,15 @@ class ComposeActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    var count = viewModel.count
-                    MyButton(count ) {
-                        viewModel.increaseCount()
+//                    var count = viewModel.count
+//                    MyButton(count ) {
+//                        viewModel.increaseCount()
                     }
                 }
             }
         }
     }
-}
+
 
 
 
